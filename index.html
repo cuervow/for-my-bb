@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for my baby</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        body {
+            font-family: "Press Start 2P", cursive;
+            text-align: center;
+            background: linear-gradient(45deg, #ff99cc, #ff66b2);
+            color: white;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 20px;
+            text-shadow: 2px 2px #ff66b2;
+            padding: 8px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+        }
+
+        p {
+            font-size: 14px;
+            text-shadow: 1px 1px #ff66b2;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 8px;
+            border-radius: 8px;
+        }
+
+        .glitter {
+            width: 100%;
+            height: 5px;
+            background: url('https://i.imgur.com/B6zV9yK.gif');
+            margin: 10px 0;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        button {
+            font-family: "Press Start 2P", cursive;
+            background: linear-gradient(45deg, #ff66b2, #ff99cc);
+            color: white;
+            font-size: 14px;
+            padding: 8px 16px;
+            border: 2px solid white;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px white;
+            transition: all 0.2s ease-in-out;
+        }
+
+        button:hover {
+            background: white;
+            color: #ff66b2;
+            box-shadow: 0px 0px 20px white;
+        }
+    </style>
+</head>
+<body>
+    <div class="glitter"></div>
+    <h1>i know we're thousands of miles apart</h1>
+    <p>but baby, will you be my valentine?</p>
+    <div class="glitter"></div>
+
+    <div class="buttons">
+        <button id="yesButton" onclick="goToLovePage()">yes</button>
+        <button id="noButton" onclick="askAgain()">no</button>
+    </div>
+
+    <script>
+        let noResponses = [
+            "are you sure?",
+            "are you really sure? :(",
+            "pls baby say yes na",
+            "think about it again...",
+            "no? but whyyy :(",
+            "you wouldn’t do this to me :(",
+            "come on, just say yes",
+            "you're breaking my heart",
+            "just say YES already"
+        ];
+        let count = 0;
+
+        function askAgain() {
+            if (count < noResponses.length) {
+                document.getElementById("noButton").innerText = noResponses[count];
+            } else {
+                document.getElementById("noButton").innerText = "just say yes pls";
+            }
+            count++;
+
+            let yesButton = document.getElementById("yesButton");
+            let currentSize = parseInt(window.getComputedStyle(yesButton).fontSize);
+            yesButton.style.fontSize = (currentSize + 3) + "px";
+            yesButton.style.padding = (currentSize / 2 + 8) + "px";
+        }
+
+        function goToLovePage() {
+            window.location.href = "love.html";
+        }
+    </script>
+</body>
+</html>
